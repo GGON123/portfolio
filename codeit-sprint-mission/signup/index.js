@@ -95,6 +95,7 @@ function goUrl() {
 document.querySelector('#email').addEventListener('focusout',validateEmail);// 이메일 입력상태 호출
 document.querySelector('#password').addEventListener('focusout',validatePassword); // 비밀번호 입력상태 호출
 document.querySelector('#confirm-password').addEventListener('focusout',validateConfirmPassword);// 비밀번호확인 입력상태 호출
+document.querySelector('#confirm-password').addEventListener('focusout',buttonActivation);
 document.querySelector('#signup-button').addEventListener('click',goUrl);
 
 
