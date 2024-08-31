@@ -2,32 +2,52 @@ import axios from 'axios';
 
 const instance = axios.create({
   baseURL: 'https://sprint-mission-api.vercel.app/products',
-  timeout: 3000,
+  timeout: 5000,
 });
 
 async function getProductList(params = {}) {
-  const res = await instance.get(`/`, {params});
-  return res.data;
+  try {
+    const res = await instance.get(`/`, {params});
+    return res.data;
+  } catch(e) {
+    console.log(`Error: ${res.status} ${res.statusText} ${res.message}`);
+  }
 }
 
 async function getProduct(id) {
-  const res = await instance.get(`/${id}`);
-  return res.data;
+  try {
+    const res = await instance.get(`/${id}`);
+    return res.data;
+  } catch(e) {
+    console.log(`Error: ${res.status} ${res.statusText} ${res.message}`);
+  }
 }
 
 async function createProduct(productDada) {
-  const res = await instance.post(`/`, productDada);
-  return res.data;
+  try {
+    const res = await instance.post(`/`, productDada);
+    return res.data;
+  } catch(e) {
+    console.log(`Error: ${res.status} ${res.statusText} ${res.message}`);
+  }
 }
 
 async function patchProduct(id, productDada) {
-  const res = await instance.patch(`/${id}`, productDada);
-  return res.data;
+  try {
+    const res = await instance.patch(`/${id}`, productDada);
+    return res.data;
+  } catch(e) {
+    console.log(`Error: ${res.status} ${res.statusText} ${res.message}`);
+  }
 }
 
 async function deleteProduct(id) {
-  const res = await instance.delete(`/${id}`);
-  return `${res.status} ${res.statusText} ${res.message}`;
+  try {
+    const res = await instance.delete(`/${id}`);
+    return `${res.status} ${res.statusText} ${res.message}`;
+  } catch(e) {
+    console.log(`Error: ${res.status} ${res.statusText} ${res.message}`);
+  }
 }
 
 export {
